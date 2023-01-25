@@ -101,13 +101,14 @@ int write_num(int ind, char buffer[],
 	if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0' && width == 0)
 		return (0);
 	if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
-		buffer[ind] = padd = ' ';					if (prec > 0 && prec < length)
+		buffer[ind] = padd = ' ';
+	if (prec > 0 && prec < length)
 		padd = ' ';
-		while (prec > length)
+	while (prec > length)
 		buffer[--ind] = '0', length++;
-		if (extra_c != 0)
+	if (extra_c != 0)
 			length++;
-		if (width > length)
+	if (width > length)
 		{
 		for (i = 1; i < width - length + 1; i++)
 			buffer[i] = padd;
